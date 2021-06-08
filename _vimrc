@@ -10,8 +10,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 
 "UI Plugins
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'altercation/vim-colors-solarized'
 
@@ -43,6 +41,7 @@ set expandtab
 set softtabstop=2
 syntax enable
 set autoindent
+set relativenumber
 set background=light
 colorscheme solarized
 map <ScrollWheelUp> <C-Y>
@@ -71,6 +70,14 @@ set backspace=indent,eol,start
 set ruler
 set guitablabel=%t
 set guioptions-=T
+set guicursor=a:block
+set guicursor=a:blinkwait800-blinkon500-blinkoff500
+
+
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
 
 :imap <F5> <esc>:w <bar> !g++ -std=c++14 -DONLINE_JUDGESAS % -o %:r -Wl,--stack,268435456<CR>
 :imap <F9> <esc>:!%:r<CR>
@@ -84,7 +91,8 @@ autocmd filetype cpp nnoremap <F10> :!%:r<CR>
 autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
 autocmd filetype cpp nnoremap <F2> :w<CR>
 :imap <F2> <esc>:w<CR>
-autocmd filetype cpp nnoremap <F12> :%y+<CR>  
+autocmd filetype cpp nnoremap <F12> :%y+<CR>
+autocmd BufNewFile *.cpp 0r C:\Users\admin\Desktop\Allcodeforcesr\Code\NuevaCarpeta\template.cpp  
 
 set nu
 augroup numbertoggle
