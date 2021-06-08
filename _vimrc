@@ -1,5 +1,28 @@
 source $VIMRUNTIME/vimrc_example.vim
 
+filetype off
+set shellslash
+set rtp+=~/vimfiles/bundle/Vundle.vim
+call vundle#begin('~/vimfiles/bundle')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 call plug#begin()
 
 "Navigation Plugins
@@ -27,12 +50,12 @@ Plug 'lukaszkorecki/workflowish'
 
 call plug#end()
 
-
 au GUIEnter * simalt ~x
 set hls
 set is
 set cb=unnamed
 set gfn=Consolas:h11
+set nocompatible
 set ts=2
 set sw=2
 set si
@@ -72,6 +95,7 @@ set guitablabel=%t
 set guioptions-=T
 set guicursor=a:block
 set guicursor=a:blinkwait800-blinkon500-blinkoff500
+
 
 
 let &t_ti.="\e[1 q"
